@@ -1,0 +1,22 @@
+# 1. 忽略编译产生的可执行文件和中间件 (C++ 通用)
+*.exe
+*.o
+*.obj
+*.a
+*.so
+*.dll
+
+# 2. 忽略常见的构建输出目录
+build/
+out/
+bin/
+Debug/
+Release/
+
+# 3. 忽略 VSCode 的个人配置 (如果只有你一个人写，建议忽略；如果团队共享配置则保留)
+.vscode/
+
+# 4. 忽略系统自动生成的垃圾文件
+.DS_Store
+Thumbs.db
+*.log
