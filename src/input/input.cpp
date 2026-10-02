@@ -99,7 +99,7 @@ void Input::updateMsgData()
     msgData.F1  = getSta(sf::Keyboard::Key::F1);
     msgData.Alt = getSta(sf::Keyboard::Key::LAlt);//单左alt
 
-    msgData.isMouseF = mouseStaL_;
+    msgData.isMouseF = mouseStaL_;//input.mouseLogicPos = {0.f, 0.f};还没有映射成逻辑坐标
     //msgData.MousePos = mousePos_;
     msgData.MousePos = {rawMousePos_.x, rawMousePos_.y};
 }

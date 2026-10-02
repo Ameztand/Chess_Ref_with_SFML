@@ -1,30 +1,37 @@
-//#include <optional>
-#include <iostream>
 //#include <windows.h>
+#include <iostream>
+
+#include "config.h"
+
 #include "./input/input.h"
 #include "./render/render.h"
+#include "./include/utils/time_clock.h"
 
 int main() {
-    Renderer render;
+    //加载数据
+
+    //创建对象
+    Renderer render(kLogicWidth, kLogicHeight);//创建窗口，逻辑像素
     Input input(render.getWindow());
+    TimeClock clock;
 
-    render.initRender();
-
-    std::cout << "SFML 窗口已启动, 按下Eac退出。" << std::endl;
+    render.onEnter();
 
     while (render.isOpen()) {
         input.poll();
-        const auto& data = input.getMsgData();
+        const auto& msgData = input.getMsgData();
 
-        if (data.Esc == IInputLayer::KeySta::Falling) {
-            render.close();
-            std::cout << "Esc退出。" << std::endl;
+        if (msgData.Esc == IInputLayer::KeySta::Falling) {
+            std::cout << "执行Esc退出。" << std::endl;
+            render.onExit();
             break;
         }
 
+        //logic(data, clock.now());
         render.render();
     }
 
     std::cout << "程序正常退出。" << std::endl;
+
     return 0;
 }

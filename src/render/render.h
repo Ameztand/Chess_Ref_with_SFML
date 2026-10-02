@@ -10,15 +10,11 @@ private:
     sf::RenderWindow window_;//窗口事件
 
 public:
-    Renderer(unsigned int w = 1080, unsigned int h = 720) //初始化创建
-        : window_(sf::VideoMode({w, h}), "Genshen??",
-            sf::Style::Titlebar | sf::Style::Close) 
-    {
-        window_.setFramerateLimit(60);
-    }
+    Renderer(unsigned int logicW = 1920, unsigned int logicH = 1080);//构造函数，创建窗口
 
     void render();
-    void initRender();
+    void onEnter();
+    void onExit();
 
     //控制器
     bool isOpen() const { return window_.isOpen(); }
